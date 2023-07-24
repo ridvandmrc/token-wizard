@@ -1,0 +1,33 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0-next",
+  "description": "Generate design tokens",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "remove": "rimraf dist",
+    "prebuild": "npm run remove",
+    "build": "tsc --declaration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridvandmrc/design-tokens.git"
+  },
+  "author": "Rıdvan Demirci",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ridvandmrc/design-tokens/issues"
+  },
+  "homepage": "https://github.com/ridvandmrc/design-tokens#readme",
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "i": "^0.3.7",
+    "npm": "^9.8.1",
+    "rimraf": "^5.0.1",
+    "self-referenced-object": "^2.0.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.1.6"
+  }
+}
