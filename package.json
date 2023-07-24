@@ -1,7 +1,7 @@
 {
-  "name": "design-tokens",
-  "version": "1.0.0-next",
-  "description": "Generate design tokens",
+  "name": "token-wizard",
+  "version": "1.0.0-alpha",
+  "description": "Token wizard is a powerful and versatile library for managing design tokens in your projects. Simplify your design system by centralizing colors, typography, spacing, and more, ensuring consistent styling across different platforms and applications.",
   "main": "dist/index.js",
   "files": [
     "dist/"
@@ -9,7 +9,7 @@
   "scripts": {
     "remove": "rimraf dist",
     "prebuild": "npm run remove",
-    "build": "tsc --declaration"
+    "build": "./node_modules/typescript/bin/tsc --declaration"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,27 @@
   "homepage": "https://github.com/ridvandmrc/design-tokens#readme",
   "dependencies": {
     "change-case": "^4.1.2",
-    "i": "^0.3.7",
-    "npm": "^9.8.1",
+    "self-referenced-object": "^2.0.0"
+  },
+  "devDependencies": {
     "rimraf": "^5.0.1",
-    "self-referenced-object": "^2.0.0",
     "tsc": "^2.0.4",
     "typescript": "^5.1.6"
-  }
+  },
+  "keywords": [
+    "design tokens",
+    "design system",
+    "config",
+    "builder",
+    "design",
+    "tokens",
+    "properties",
+    "css",
+    "sass",
+    "scss",
+    "js",
+    "camelCase",
+    "PascalCase",
+    "kebab-case"
+  ]
 }

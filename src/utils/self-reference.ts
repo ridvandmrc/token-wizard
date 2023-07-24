@@ -1,6 +1,6 @@
 import sro from 'self-referenced-object'
 import { TokenType } from '../types'
 
-export const selfReferencObjdex = (obj: TokenType) => {
+export const selfReferencObject = (obj: TokenType) => {
     return sro(obj)
 }
