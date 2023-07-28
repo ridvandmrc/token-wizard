@@ -1,6 +1,6 @@
 {
   "name": "token-wizard",
-  "version": "1.0.0-alpha",
+  "version": "1.0.1-alpha",
   "description": "Token wizard is a powerful and versatile library for managing design tokens in your projects. Simplify your design system by centralizing colors, typography, spacing, and more, ensuring consistent styling across different platforms and applications.",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +9,8 @@
   "scripts": {
     "remove": "rimraf dist",
     "prebuild": "npm run remove",
-    "build": "./node_modules/typescript/bin/tsc --declaration"
+    "build": "./node_modules/typescript/bin/tsc --declaration",
+    "test":"./node_modules/typescript/bin/tsc ./test/index.ts & node ./test/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "self-referenced-object": "^2.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.4.5",
     "rimraf": "^5.0.1",
     "tsc": "^2.0.4",
     "typescript": "^5.1.6"

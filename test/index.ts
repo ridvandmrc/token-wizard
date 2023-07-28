@@ -1,7 +1,7 @@
 import { generateToken } from '../dist'
 
 export const defaultLightBrand = {
-    go: {
+    test: {
         blue: {
             900: "#03045E",
             800: "#023E8A",
@@ -49,11 +49,11 @@ export const defaultLightBrand = {
             100: "#F8F9FA",
         },
         white: "#ffffff",
-        background: '${this.go.gray[100]}',
-        primaryButtonBackground: '${this.go.blue[600]}',
-        primaryButtonColor: '${this.go.white}',
-        secondaryButtonBackground: '${this.go.white}',
-        secondaryButtonColor: '${this.go.white}',
+        background: '${this.test.gray[100]}',
+        primaryButtonBackground: '${this.test.blue[600]}',
+        primaryButtonColor: '${this.test.white}',
+        secondaryButtonBackground: '${this.test.white}',
+        secondaryButtonColor: '${this.test.white}',
     }
 
 };
@@ -62,4 +62,6 @@ export const defaultLightBrand = {
 
 const tokens = generateToken({ tokens: defaultLightBrand })
 
-console.log(tokens.toCss())
+console.log(tokens.toCss('./token.css'))
+console.log(tokens.toScss('./token.scss'))
+console.log(tokens.toJS('./token.js'))
