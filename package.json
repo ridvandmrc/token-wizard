@@ -1,6 +1,6 @@
 {
   "name": "token-wizard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Token wizard is a powerful and versatile library for managing design tokens in your projects. Simplify your design system by centralizing colors, typography, spacing, and more, ensuring consistent styling across different platforms and applications.",
   "main": "dist/index.js",
   "files": [
