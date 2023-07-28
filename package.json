@@ -1,6 +1,6 @@
 {
   "name": "token-wizard",
-  "version": "1.0.1-alpha",
+  "version": "1.0.0",
   "description": "Token wizard is a powerful and versatile library for managing design tokens in your projects. Simplify your design system by centralizing colors, typography, spacing, and more, ensuring consistent styling across different platforms and applications.",
   "main": "dist/index.js",
   "files": [
@@ -10,18 +10,18 @@
     "remove": "rimraf dist",
     "prebuild": "npm run remove",
     "build": "./node_modules/typescript/bin/tsc --declaration",
-    "test":"./node_modules/typescript/bin/tsc ./test/index.ts & node ./test/index.js"
+    "test": "./node_modules/typescript/bin/tsc ./test/index.ts & node ./test/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ridvandmrc/design-tokens.git"
+    "url": "git+https://github.com/ridvandmrc/token-wizard.git"
   },
   "author": "Rıdvan Demirci",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ridvandmrc/design-tokens/issues"
+    "url": "https://github.com/ridvandmrc/token-wizard/issues"
   },
-  "homepage": "https://github.com/ridvandmrc/design-tokens#readme",
+  "homepage": "https://github.com/ridvandmrc/token-wizard#readme",
   "dependencies": {
     "change-case": "^4.1.2",
     "self-referenced-object": "^2.0.0"
