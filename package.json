@@ -10,7 +10,8 @@
     "remove": "rimraf dist",
     "prebuild": "npm run remove",
     "build": "./node_modules/typescript/bin/tsc --declaration",
-    "test": "./node_modules/typescript/bin/tsc ./test/index.ts & node ./test/index.js"
+    "test": "./node_modules/typescript/bin/tsc ./test/index.ts & node ./test/index.js",
+    "prepare-release": "npx standard-version"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.5",
+    "husky": "^8.0.3",
     "rimraf": "^5.0.1",
+    "standard-version": "^9.5.0",
     "tsc": "^2.0.4",
     "typescript": "^5.1.6"
   },
