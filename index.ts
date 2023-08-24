@@ -1,1 +1,1 @@
-export { generateToken } from './src/build'
+export { generateToken, createTheme } from "./src/build";
