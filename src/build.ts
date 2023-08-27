@@ -1,7 +1,7 @@
 import { TokenOptionType } from "./types";
 import { selfReferencObject, flatObj, execute } from "./utils";
 
-export { createTheme } from "./utils/craete-theme";
+export { createTheme } from "./utils";
 
 export const generateToken = ({
   targetCase,

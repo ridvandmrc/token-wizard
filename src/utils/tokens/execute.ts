@@ -1,4 +1,4 @@
-import { CaseHelperType, CaseType, TargetType } from "../types";
+import { CaseHelperType, CaseType, TargetType } from "../../types";
 import { targetCaseMap } from "./case-change";
 import { writeFile } from "./write-file";
 
