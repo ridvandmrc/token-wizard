@@ -1,4 +1,4 @@
-import { TokenType } from "../types";
+import { TokenType } from "../../types";
 
 export const flatObj = (tokens: TokenType, prefix = '', res: Record<string, string> = {}) => {
     Object.entries(tokens).forEach(([key, value]) => {

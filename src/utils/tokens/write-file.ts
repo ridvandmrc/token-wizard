@@ -1,5 +1,5 @@
 import fs from "fs";
-import { TargetType, TokenType } from "../types";
+import { TargetType, TokenType } from "../../types";
 
 const cssTemplate = (token: TokenType) =>
   `:root {\n${Object.entries(token)

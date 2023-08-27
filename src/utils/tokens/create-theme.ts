@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { ITheme, TargetType, TokenType } from "../types";
+import { ITheme, TargetType, TokenType } from "../../types";
 import { execute } from "./execute";
 import { flatObj } from "./flatten";
 import { selfReferencObject } from "./self-reference";

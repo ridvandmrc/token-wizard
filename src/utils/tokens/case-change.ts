@@ -1,5 +1,5 @@
 import { paramCase, camelCase, pascalCase, snakeCase } from "change-case";
-import { CaseHelperType, CaseType } from "../types";
+import { CaseHelperType, CaseType } from "../../types";
 
 const caseHelper = <T>({
   caseFunc,
