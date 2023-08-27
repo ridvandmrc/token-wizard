@@ -4,6 +4,7 @@ import { ITheme, TargetType, TokenType } from "../../types";
 import { execute } from "./execute";
 import { flatObj } from "./flatten";
 import { selfReferencObject } from "./self-reference";
+import { generateDocs } from "../docs";
 
 const cssTemplate = (target: string, token: TokenType, isRoot = false) =>
   `${isRoot ? `:root ` : `html [theme='${target}']`} {\n${Object.entries(token)
@@ -22,6 +23,7 @@ export const createTheme = ({
   radiusTokens,
   shadowTokens,
   spacingTokens,
+  themeName,
 }: ITheme) => {
   const flatAndRefence = (obj: Object) => flatObj(selfReferencObject(obj));
   const executeObj = (obj: Object, type: TargetType = "css", prefix = "--") =>
@@ -57,6 +59,17 @@ export const createTheme = ({
     )}`;
 
     fs.writeFile(fileName, root + themeColor, (err) => console.error(err));
+    generateDocs(
+      {
+        darkTokens,
+        lightTokens,
+        radiusTokens,
+        shadowTokens,
+        spacingTokens,
+        themeName,
+      },
+      fileName
+    );
   };
 
   const toScss = (fileName: string) => {
@@ -74,6 +87,17 @@ export const createTheme = ({
     const scssToken = `${dark}\n${light}\n${core}`;
 
     fs.writeFile(fileName, scssToken, (err) => console.error(err));
+    generateDocs(
+      {
+        darkTokens,
+        lightTokens,
+        radiusTokens,
+        shadowTokens,
+        spacingTokens,
+        themeName,
+      },
+      fileName
+    );
   };
 
   return { toCss, toScss };
