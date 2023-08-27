@@ -1,0 +1,31 @@
+import fs from "fs";
+
+import { ITheme } from "../../types";
+import { flatObj, selfReferencObject, targetCaseMap } from "../tokens";
+
+export const generateDocs = (theme: ITheme, folderPath: string) => {
+  console.log("folder: ", folderPath);
+
+  const flatAndRefence = (obj: Object) =>
+    targetCaseMap.camelCase({ obj: flatObj(selfReferencObject(obj)) });
+
+  let dataContent = `const darkToken = ${JSON.stringify(
+    flatAndRefence(theme.darkTokens)
+  )} \n`;
+  dataContent += `const lightToken =${JSON.stringify(
+    flatAndRefence(theme.lightTokens)
+  )} \n`;
+  dataContent += `const radiusToken =${JSON.stringify(
+    flatAndRefence(theme.radiusTokens)
+  )} \n`;
+  dataContent += `const shadowToken =${JSON.stringify(
+    flatAndRefence(theme.shadowTokens)
+  )} \n`;
+  dataContent += `const spacingToken =${JSON.stringify(
+    flatAndRefence(theme.spacingTokens)
+  )}`;
+  dataContent += `\nconst themeName =${JSON.stringify(theme.themeName)} \n`;
+
+  !fs.existsSync("docs") && fs.mkdirSync("docs");
+  fs.writeFileSync("docs/data.js", dataContent, { flag: "w" });
+};
