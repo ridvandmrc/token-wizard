@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@200&family=Raleway:wght@200;300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@200&family=Raleway:wght@200;300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tulpen+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="./data.js"></script>
+    <link href="./style.css" rel="stylesheet" />
+
+    <script>
+      document.title = themeName;
+      function copyClipBoard(text) {
+        window.navigator.clipboard.writeText(text).then(() => {
+          alert("copied: " + text);
+        });
+      }
+      setTimeout(() => {
+        const header = document.querySelector("header");
+        header && (header.innerHTML = `<p class="brand-name">${themeName}</p>`);
+        const verticalMenu = document.querySelector(".vertical-menu");
+        verticalMenu.innerHTML = `
+        <li><a href="#">Getting Started</a></li>
+        <li><a href="#colors">${themeName}</a></li>
+        <li><a href="#radius">Radius</a></li>
+        <li><a href="#spacing">Spacing</a></li>
+        <li><a href="#shadow">Shadow</a></li>
+        `;
+
+        const getStarted = document.querySelector(".started");
+        getStarted.innerHTML = `
+        <h3>Getting Started</h3>
+        <p>${startedPage}</p>
+        `;
+
+        const lightTheme = document.querySelector(".light-theme");
+        lightTheme.innerHTML = `
+        <h3>Light Theme </h3>
+        ${Object.entries(lightToken)
+          .map(
+            ([
+              key,
+              value,
+            ]) => `<div onclick="copyClipBoard('${value}')" class="display-wrapper color-display">
+            <div class="display-box color-box" style="background-color: ${value}">
+                <div class="copy-code">Copy Code</div></div>
+            <p class="display-name color-name">${key}</p>
+          </div>`
+          )
+          .join("")}`;
+
+        const darkTheme = document.querySelector(".dark-theme");
+        darkTheme.innerHTML = `
+        <h3>Dark Theme </h3>
+        ${Object.entries(darkToken)
+          .map(
+            ([
+              key,
+              value,
+            ]) => `<div onclick="copyClipBoard('${value}')"  class="display-wrapper  color-display">
+            <div class="display-box color-box" style="background-color: ${value}">
+                <div class="copy-code">Copy Code</div>
+            </div>
+            <p class="display-name color-name">${key}</p>
+          </div>`
+          )
+          .join("")}`;
+
+        const radius = document.querySelector(".radius");
+        radius.innerHTML = `
+         <h3 id="radius">Radius</h3>
+         ${Object.entries(radiusToken)
+           .map(
+             ([key, value]) => `
+          <div onclick="copyClipBoard('${value}')"  class="display-wrapper radius-display">
+            <div class="display-box radius-box" style="border-radius:${value}">
+              <div class="copy-code">Copy Code</div>
+            </div>
+            <div class="display-name radius-name">${key}</div>
+          </div>
+          `
+           )
+           .join("")}
+         `;
+
+        const spacing = document.querySelector(".spacing");
+
+        spacing.innerHTML = `
+        <h3 id="spacing"> Spacing </h3>
+        ${Object.entries(spacingToken)
+          .map(
+            ([key, value]) => `
+          <div onclick="copyClipBoard('${value}')"  class="display-wrapper spacing-display">
+            <div class="display-box spacing-box" style="width:${value}"></div>
+            <div class="display-name spacing-name">${key}</div>
+            <div class="copy-code">Copy Code</div>
+          </div>
+          `
+          )
+          .join("")}
+        `;
+
+        const shadow = document.querySelector(".shadow");
+
+        shadow.innerHTML = `
+        <h3 id="shadow"> Shadow </h3>
+        ${Object.entries(shadowToken)
+          .map(
+            ([key, value]) => `
+            <div onclick="copyClipBoard('${value}')"  class="display-wrapper shadow-display">
+              <div class="display-box shadow-box" style="box-shadow:${value}">
+                <div class="display-name copy-code">Copy Code</div></div>
+              <div class="shadow-name">${key}</div>
+            </div>
+          `
+          )
+          .join("")}
+        `;
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <header>
+      <p></p>
+    </header>
+
+    <div class="main-wrapper">
+      <aside>
+        <h4>Content</h4>
+        <ul class="vertical-menu"></ul>
+      </aside>
+      <main>
+        <section class="started"></section>
+        <section id="colors" class="theme">
+          <div class="light-theme"></div>
+          <div class="divider"></div>
+          <div class="dark-theme"></div>
+        </section>
+
+        <section class="radius"></section>
+        <section class="spacing"></section>
+        <section class="shadow"></section>
+      </main>
+    </div>
+  </body>
+</html>

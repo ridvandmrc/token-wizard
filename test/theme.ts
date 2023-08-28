@@ -3,7 +3,7 @@ import { defaultLightBrand, radius, spacing, shadow } from "./data";
 
 export const testTheme = () => {
   createTheme({
-    themeName: "Ridvan Theme",
+    themeName: "Test Theme",
     darkTokens: defaultLightBrand,
     lightTokens: defaultLightBrand,
     radiusTokens: radius,
