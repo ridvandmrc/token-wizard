@@ -12,6 +12,9 @@ npm i token-wizard --save-dev
 
 ## Features
 
+- Auto generated documentation. \*\*NEW
+- Supporting theme. (dark and light mode) \*\*NEW
+- Exporting **ts** file. \*\*NEW
 - The library has typescript support, so that you can use it easily
 - A comprehensive collection of design tokens for various design attributes.
 - Well-organized categories, including colors, typography, spacing, borders, and shadows.
@@ -21,7 +24,34 @@ npm i token-wizard --save-dev
 
 ## Usage
 
-- import library and use **generateToken**
+- <h3>The usage of createTheme() which is implemented in the new version.<h3>
+
+```ts
+import { createTheme } from "token-wizard";
+// you can find more data under test/data.ts
+const theme = createTheme({
+  themeName: "Test Theme",
+  darkTokens: defaultLightBrand, // {primaryBorder:'#fff'}
+  lightTokens: defaultLightBrand, // {primaryBorder: '#000'}
+  radiusTokens: radius, // {border1: '#000'}
+  shadowTokens: shadow, // {shadow1: '#000'}
+  spacingTokens: spacing, // {spacing1: '#000'}
+});
+
+// you can create css or Scss
+theme.toCss("/path/theme.css");
+theme.toScss("/path/theme.scss");
+
+// Above code will create documentation
+// you can find example test/docs
+```
+
+- Example of **auto documentation**
+
+* ![auto docs](./assets/color.png)
+* ![radius docs](./assets/radius.png)
+
+* <h4>import library and use generateToken() <h4>
 
 ```ts
 import { generateToken } from "token-wizard";
