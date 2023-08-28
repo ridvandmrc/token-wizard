@@ -26,6 +26,17 @@ export const generateDocs = (theme: ITheme, folderPath: string) => {
   )}`;
   dataContent += `\nconst themeName =${JSON.stringify(theme.themeName)} \n`;
 
-  !fs.existsSync("docs") && fs.mkdirSync("docs");
-  fs.writeFileSync("docs/data.js", dataContent, { flag: "w" });
+  dataContent += `const startedPage = ${JSON.stringify(theme.startedPage)} `;
+
+  const path =
+    folderPath.split("/").length > 1
+      ? `${folderPath.split("/").slice(0, -1).join("/")}`
+      : "";
+
+  !fs.existsSync(`${path}/docs`) && fs.mkdirSync(`${path}/docs`);
+
+  fs.cpSync("src/docs/index.html", `${path}/docs/index.html`);
+  fs.cpSync("src/docs/style.css", `${path}/docs/style.css`);
+
+  fs.writeFileSync(`${path}/docs/data.js`, dataContent, { flag: "w" });
 };

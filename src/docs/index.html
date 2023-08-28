@@ -21,15 +21,27 @@
 
     <script>
       document.title = themeName;
+      function copyClipBoard(text) {
+        window.navigator.clipboard.writeText(text).then(() => {
+          alert("copied: " + text);
+        });
+      }
       setTimeout(() => {
         const header = document.querySelector("header");
         header && (header.innerHTML = `<p class="brand-name">${themeName}</p>`);
         const verticalMenu = document.querySelector(".vertical-menu");
         verticalMenu.innerHTML = `
-        <li><a href="#">${themeName}</a></li>
+        <li><a href="#">Getting Started</a></li>
+        <li><a href="#colors">${themeName}</a></li>
         <li><a href="#radius">Radius</a></li>
         <li><a href="#spacing">Spacing</a></li>
         <li><a href="#shadow">Shadow</a></li>
+        `;
+
+        const getStarted = document.querySelector(".started");
+        getStarted.innerHTML = `
+        <h3>Getting Started</h3>
+        <p>${startedPage}</p>
         `;
 
         const lightTheme = document.querySelector(".light-theme");
@@ -37,10 +49,13 @@
         <h3>Light Theme </h3>
         ${Object.entries(lightToken)
           .map(
-            ([key, value]) => `<div class="color-display">
-            <div class="color-box" style="background-color: ${value}">
+            ([
+              key,
+              value,
+            ]) => `<div onclick="copyClipBoard('${value}')" class="display-wrapper color-display">
+            <div class="display-box color-box" style="background-color: ${value}">
                 <div class="copy-code">Copy Code</div></div>
-            <p class="color-name">${key}</p>
+            <p class="display-name color-name">${key}</p>
           </div>`
           )
           .join("")}`;
@@ -50,11 +65,14 @@
         <h3>Dark Theme </h3>
         ${Object.entries(darkToken)
           .map(
-            ([key, value]) => `<div class="color-display">
-            <div class="color-box" style="background-color: ${value}">
+            ([
+              key,
+              value,
+            ]) => `<div onclick="copyClipBoard('${value}')"  class="display-wrapper  color-display">
+            <div class="display-box color-box" style="background-color: ${value}">
                 <div class="copy-code">Copy Code</div>
             </div>
-            <p class="color-name">${key}</p>
+            <p class="display-name color-name">${key}</p>
           </div>`
           )
           .join("")}`;
@@ -65,11 +83,11 @@
          ${Object.entries(radiusToken)
            .map(
              ([key, value]) => `
-          <div class="radius-display">
-            <div class="radius-box" style="border-radius:${value}">
+          <div onclick="copyClipBoard('${value}')"  class="display-wrapper radius-display">
+            <div class="display-box radius-box" style="border-radius:${value}">
               <div class="copy-code">Copy Code</div>
             </div>
-            <div class="radius-name">${key}</div>
+            <div class="display-name radius-name">${key}</div>
           </div>
           `
            )
@@ -83,9 +101,9 @@
         ${Object.entries(spacingToken)
           .map(
             ([key, value]) => `
-          <div class="spacing-display">
-            <div class="spacing-box" style="width:${value}"></div>
-            <div class="spacing-name">${key}</div>
+          <div onclick="copyClipBoard('${value}')"  class="display-wrapper spacing-display">
+            <div class="display-box spacing-box" style="width:${value}"></div>
+            <div class="display-name spacing-name">${key}</div>
             <div class="copy-code">Copy Code</div>
           </div>
           `
@@ -100,9 +118,9 @@
         ${Object.entries(shadowToken)
           .map(
             ([key, value]) => `
-            <div class="shadow-display">
-              <div class="shadow-box" style="box-shadow:${value}">
-                <div class="copy-code">Copy Code</div></div>
+            <div onclick="copyClipBoard('${value}')"  class="display-wrapper shadow-display">
+              <div class="display-box shadow-box" style="box-shadow:${value}">
+                <div class="display-name copy-code">Copy Code</div></div>
               <div class="shadow-name">${key}</div>
             </div>
           `
@@ -123,7 +141,8 @@
         <ul class="vertical-menu"></ul>
       </aside>
       <main>
-        <section class="theme">
+        <section class="started"></section>
+        <section id="colors" class="theme">
           <div class="light-theme"></div>
           <div class="divider"></div>
           <div class="dark-theme"></div>

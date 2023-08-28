@@ -23,6 +23,7 @@ export const createTheme = ({
   radiusTokens,
   shadowTokens,
   spacingTokens,
+  startedPage,
   themeName,
 }: ITheme) => {
   const flatAndRefence = (obj: Object) => flatObj(selfReferencObject(obj));
@@ -67,6 +68,7 @@ export const createTheme = ({
         shadowTokens,
         spacingTokens,
         themeName,
+        startedPage,
       },
       fileName
     );
@@ -95,6 +97,7 @@ export const createTheme = ({
         shadowTokens,
         spacingTokens,
         themeName,
+        startedPage,
       },
       fileName
     );

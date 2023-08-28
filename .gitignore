@@ -4,3 +4,6 @@
 /*.tgz
 
 /test/*.js
+/test/*.scss
+/test/*.css
+/test/docs/
