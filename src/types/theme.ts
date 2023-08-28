@@ -4,5 +4,6 @@ export interface ITheme {
   spacingTokens: Object;
   radiusTokens: Object;
   shadowTokens: Object;
+  startedPage: string;
   themeName: string;
 }
